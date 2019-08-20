@@ -9,26 +9,34 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#0092CF",
     "navigationBarTitleText": "自助缴费",
-    "navigationBarTextStyle": "black",
+    "navigationBarTextStyle": "white",
     "navigationStyle": "default"
   },
   "tabBar": {
     "list": [
       {
         "pagePath": "pages/list/list",
-        "text": "订单"
+        "text": "订单",
+        "iconPath": "img/order.png",
+        "selectedIconPath": "img/orderfill.png"
       },
       {
         "pagePath": "pages/home/home",
-        "text": "首页"
+        "text": "首页",
+        "iconPath": "img/shouye.png",
+        "selectedIconPath": "img/shouyefill.png"
       },
       {
         "pagePath": "pages/find/find",
-        "text": "查询"
+        "text": "查询",
+        "iconPath": "img/sousuo.png",
+        "selectedIconPath": "img/sousuoleimufill.png"
       }
-    ]
+    ],
+    "color": "#333",
+    "selectedColor": "#0092CF"
   },
   "sitemapLocation": "sitemap.json"
 }

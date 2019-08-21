@@ -7,4 +7,7 @@
   justify-content: space-between;
   padding: 200rpx 0;
   box-sizing: border-box;
-} 
+}
+.btn_bg{
+    background-color: #0092CF !important;
+}

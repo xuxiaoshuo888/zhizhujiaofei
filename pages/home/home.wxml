@@ -1,2 +1,10 @@
-<!--pages/home/home.wxml-->
-<text>pages/home/home.wxml</text>
+<view class="page">
+<swiper class="index-banner" indicator-dots="{{indicatorDots}}"
+    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls}}">
+      <swiper-item>
+        <image class="swiper-image" src="{{item}}" mode="aspectFill"/>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>

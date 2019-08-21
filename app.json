@@ -19,20 +19,20 @@
       {
         "pagePath": "pages/list/list",
         "text": "订单",
-        "iconPath": "img/order.png",
-        "selectedIconPath": "img/orderfill.png"
+        "iconPath": "img/form_light.png",
+        "selectedIconPath": "img/form_fill_light.png"
       },
       {
         "pagePath": "pages/home/home",
         "text": "首页",
-        "iconPath": "img/shouye.png",
-        "selectedIconPath": "img/shouyefill.png"
+        "iconPath": "img/home_light.png",
+        "selectedIconPath": "img/home_fill_light.png"
       },
       {
         "pagePath": "pages/find/find",
         "text": "查询",
-        "iconPath": "img/sousuo.png",
-        "selectedIconPath": "img/sousuoleimufill.png"
+        "iconPath": "img/search.png",
+        "selectedIconPath": "img/search_fill.png"
       }
     ],
     "color": "#333",

@@ -30,9 +30,9 @@ Page({
     //           })
     //         } else if (res.data.errcode === '1') {
     //           app.globalData.openId = res.data.data.openId
-    //           wx.navigateTo({
-    //             url: '/pages/login/login',
-    //           })
+              wx.navigateTo({
+                url: '/pages/login/login',
+              })
     //         } else {
     //           wx.showToast({
     //             title: res.data.errmsg,
@@ -47,9 +47,9 @@ Page({
     //     /*调试*/
     //   }
     // })
-    console.log("123")
-    wx.switchTab({
-      url: '/pages/home/home',
-    })
+    
+    // wx.switchTab({
+    //   url: '/pages/home/home',
+    // })
   }
 })

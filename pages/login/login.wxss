@@ -1,1 +1,10 @@
-/* pages/login/login.wxss */
+@import "../common/lib/weui.wxss";
+
+.weui-label{
+    text-align: left;
+    width: 70px;
+}
+.page__title{
+    padding: 10px;
+    text-align: center;
+}

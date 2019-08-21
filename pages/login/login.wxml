@@ -1,2 +1,30 @@
-<!--pages/login/login.wxml-->
-<text>pages/login/login.wxml</text>
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+    <view class="page__hd">
+        <view class="page__title">登录</view>
+    </view>
+    <view class="page__bd">
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell ">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">用户名</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" bindinput="setUsername" placeholder="请输入用户名" bindconfirm="handleConfirmUser" focus="{{userFocus}}"/>
+                </view>
+            </view>
+            <view class="weui-cell  weui-cells_after-title">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">密码</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" bindinput="setPassword" placeholder="请输入密码" password="true" bindconfirm="handleConfirmPwd" focus="{{pwdFocus}}"/>
+                </view>
+            </view>
+            
+        </view>
+
+        <view class="weui-btn-area">
+            <button class="weui-btn btn_bg" type="primary" bindtap="login">登录</button>
+        </view>
+    </view>
+</view>

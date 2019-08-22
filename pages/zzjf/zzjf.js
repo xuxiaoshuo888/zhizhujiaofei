@@ -47,6 +47,11 @@ Page({
     })
     console.log(event)
   },
+  submit(){
+    wx.navigateTo({
+      url: '/pages/zzjf/zzjfDetail',
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */

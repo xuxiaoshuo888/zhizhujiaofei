@@ -1,18 +1,31 @@
-// pages/home/home.js
-const app = getApp();
-
+// pages/zzjf/zzjf.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    imgUrls: ['../../img/b1.jpg', '../../img/b2.jpg'],
-    indicatorDots: true,
-    autoplay: true,
-    interval: 5000,
-    duration: 1000,
-    grids: ['自助缴费']
+    list: [{
+        title: '1',
+        other: ''
+      },
+      {
+        title: '2',
+        other: ''
+      },
+      {
+        title: '3',
+        other: ''
+      },
+      {
+        title: '4',
+        other: ''
+      },
+      {
+        title: '5',
+        other: ''
+      },
+    ]
   },
 
   /**
@@ -28,38 +41,19 @@ Page({
   onReady: function() {
 
   },
-
+  onChange(event) {
+    this.setData({
+      result: event.detail
+    })
+    console.log(event)
+  },
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
 
   },
-  getData: () => {
-    //获取九宫格列表
-    wx.request({
-      url: '',
-      data: {},
-      header: app.getHeader(),
-      success(res) {
-        console.log(res.data)
-        res.data.errcode = '0'
-        if (res.data.errcode === '0') {
-            this.grids = res.data.data
-        }
-      },
-      fail(res) {
-        wx.showToast({
-          title: JSON.stringify(res)
-        })
-      }
-    })
-  },
-  toDetail:()=>{//跳转九宫格详情页
-    wx.navigateTo({
-      url: '/pages/zzjf/zzjf'
-    })
-  },
+
   /**
    * 生命周期函数--监听页面隐藏
    */

@@ -1,10 +1,17 @@
 <view class="page">
-<swiper class="index-banner" indicator-dots="{{indicatorDots}}"
-    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-    <block wx:for="{{imgUrls}}">
+  <swiper class="index-banner" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls}}" wx:key="item">
       <swiper-item>
-        <image class="swiper-image" src="{{item}}" mode="aspectFill"/>
+        <image class="swiper-image" src="{{item}}" mode="aspectFill" />
       </swiper-item>
     </block>
   </swiper>
+  <view class="weui-grids">
+    <block wx:for="{{grids}}" wx:key="*this">
+      <view class="weui-grid" hover-class="weui-grid_active" bindtap="toDetail">
+        <image class="weui-grid__icon" src="../../img/zzjf.jpg" />
+        <view class="weui-grid__label">{{item}}</view>
+      </view>
+    </block>
+  </view>
 </view>

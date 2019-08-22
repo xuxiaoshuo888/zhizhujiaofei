@@ -1,4 +1,6 @@
 /**app.wxss**/
+@import './style/weui.wxss';
+
 .container {
   height: 100%;
   display: flex;
@@ -10,4 +12,17 @@
 }
 .btn_bg{
     background-color: #0092CF !important;
+}
+.weui-grids{
+  border: none;
+}
+.weui-grid{
+  border: none;
+}
+.weui-grid__icon{
+  width: 80rpx;
+  height: 80rpx;
+}
+.pad10{
+  padding: 20rpx;
 }

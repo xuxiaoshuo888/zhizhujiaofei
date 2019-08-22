@@ -1,0 +1,23 @@
+{
+  "name": "zhizhujiaofei",
+  "version": "1.0.0",
+  "description": "zizhujiaofei\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C",
+  "main": "app.js",
+  "dependencies": {
+    "vant-weapp": "^0.5.19"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xuxiaoshuo888/zhizhujiaofei.git"
+  },
+  "author": "thor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xuxiaoshuo888/zhizhujiaofei/issues"
+  },
+  "homepage": "https://github.com/xuxiaoshuo888/zhizhujiaofei#readme"
+}

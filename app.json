@@ -1,11 +1,19 @@
 {
+  "usingComponents": {
+    "van-button": "vant-weapp/button",
+    "van-checkbox": "vant-weapp/checkbox/index",
+    "van-checkbox-group": "vant-weapp/checkbox-group/index",
+    "van-submit-bar": "vant-weapp/submit-bar/index"
+  },
   "pages": [
     "pages/index/index",
     "pages/login/login",
     "pages/logs/logs",
     "pages/home/home",
     "pages/list/list",
-    "pages/find/find"
+    "pages/find/find",
+    "pages/zzjf/zzjf",
+    "pages/zzjf/zzjfDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

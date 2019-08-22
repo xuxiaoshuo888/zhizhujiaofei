@@ -1,18 +1,20 @@
 {
   "usingComponents": {
-    "van-button": "vant-weapp/button",
+    "van-button": "vant-weapp/button/index",
     "van-checkbox": "vant-weapp/checkbox/index",
     "van-checkbox-group": "vant-weapp/checkbox-group/index",
-    "van-submit-bar": "vant-weapp/submit-bar/index"
+    "van-submit-bar": "vant-weapp/submit-bar/index",
+      "van-field": "vant-weapp/field/index"
   },
   "pages": [
+    "pages/zzjf/zzjf",
+    
     "pages/index/index",
     "pages/login/login",
     "pages/logs/logs",
     "pages/home/home",
     "pages/list/list",
     "pages/find/find",
-    "pages/zzjf/zzjf",
     "pages/zzjf/zzjfDetail"
   ],
   "window": {

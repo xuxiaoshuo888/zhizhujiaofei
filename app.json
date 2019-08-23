@@ -4,15 +4,15 @@
     "van-checkbox": "vant-weapp/checkbox/index",
     "van-checkbox-group": "vant-weapp/checkbox-group/index",
     "van-submit-bar": "vant-weapp/submit-bar/index",
-      "van-field": "vant-weapp/field/index"
+    "van-field": "vant-weapp/field/index",
+    "van-tag": "vant-weapp/tag/index"
   },
   "pages": [
-    "pages/zzjf/zzjf",
-    
     "pages/index/index",
     "pages/login/login",
     "pages/logs/logs",
     "pages/home/home",
+    "pages/zzjf/zzjf",
     "pages/list/list",
     "pages/find/find",
     "pages/zzjf/zzjfDetail"

@@ -26,3 +26,25 @@
 .pad10{
   padding: 20rpx;
 }
+.sfqj{
+  color: #2AA8E9;
+  font-size: 30rpx;
+  padding: 10rpx;
+}
+.yskItem{
+color: #555555 ;
+font-size: 30rpx;
+padding: 10rpx;
+margin-bottom: 10rpx;
+}
+.bot{
+border-bottom: 1px solid #bfbfbf;
+
+}
+.fymc{
+  color: black;
+  font-weight: 800;
+}
+.qfje{
+  color: red;
+}

@@ -29,12 +29,20 @@ App({
   },
   globalData: {
     userInfo: null,
-    token:"",
-    openId:""
+    serverPath: "http://192.168.0.19:8080",
+    token: "",
+    openId: "",
+    projectId:"",//home页，九宫格项目的id
   },
   getHeader: function() {
-    return  {
-      'content-type': 'application/json' // 默认值
+    return {
+      'content-type': 'application/x-www-form-urlencoded' // 默认值
+    }
+  },
+  getHeader2: function() {
+    return {
+      "Content-Type": "application/x-www-form-urlencoded",
+      "Authorization": "Bearer " + this.globalData.token,
     }
   }
 })

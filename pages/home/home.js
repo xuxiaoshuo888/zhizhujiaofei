@@ -12,14 +12,14 @@ Page({
     autoplay: true,
     interval: 5000,
     duration: 1000,
-    grids: ['自助缴费']
+    grids: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    this.getData()
   },
 
   /**
@@ -35,17 +35,17 @@ Page({
   onShow: function() {
 
   },
-  getData: () => {
+  getData: function() {
+    let _this = this;
     //获取九宫格列表
     wx.request({
-      url: '',
-      data: {},
-      header: app.getHeader(),
+      url: `${app.globalData.serverPath}/pay/api/project/list`,
+      header: app.getHeader2(),
       success(res) {
-        console.log(res.data)
-        res.data.errcode = '0'
         if (res.data.errcode === '0') {
-            this.grids = res.data.data
+          _this.setData({
+            grids: res.data.data
+          })
         }
       },
       fail(res) {
@@ -55,10 +55,61 @@ Page({
       }
     })
   },
-  toDetail:()=>{//跳转九宫格详情页
-    wx.navigateTo({
-      url: '/pages/zzjf/zzjf'
+  toDetail: (e) => { //跳转九宫格详情页
+    console.log(e)
+    let id = e.currentTarget.dataset.id;
+    let name = e.currentTarget.dataset.name;
+    app.globalData.projectId = id; //存id，再zzjf页面提交应收款时会用到
+    wx.showLoading({
+      title: '加载中',
     })
+    wx.request({
+      url: `${app.globalData.serverPath}/pay/api/order/arrear`,
+      method: "POST",
+      data: {
+        projectId: id
+      },
+      header: app.getHeader2(),
+      success(res) {
+        wx.hideLoading()
+        if (res.data.errcode === '0') {
+          if (res.data.flag === 'ysk') { //应收款，去zzjf页面，存yskList
+            wx.setStorage({
+              key: 'yskList',
+              data: res.data.yskList,
+            })
+            wx.navigateTo({
+              url: '/pages/zzjf/zzjf',
+            })
+          } else if (res.data.flag === 'order') { //去zzjfDetail页面
+            wx.setStorage({
+              key: 'details',
+              data: res.data.details,
+            })
+            wx.setStorage({
+              key: 'order',
+              data: res.data.order,
+            })
+            wx.navigateTo({
+              url: '/pages/zzjf/zzjfDetail',
+            })
+          }
+        } else {
+          wx.showToast({
+            title: res.data.errmsg
+          })
+        }
+      },
+      fail(res) {
+        wx.hideLoading()
+        wx.showToast({
+          title: JSON.stringify(res)
+        })
+      }
+    })
+
+
+
   },
   /**
    * 生命周期函数--监听页面隐藏

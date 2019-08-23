@@ -1,12 +1,13 @@
 // pages/login/login.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    username:"",
-    password:"",
+    username:"2016121119000451",
+    password:"Sibe2016",
     pwdFocus:false,
     userFocus:true
   },
@@ -118,9 +119,36 @@ Page({
       title: '登录中，请稍候...',
       mask: true
     })
-    //login and bind
-    wx.switchTab({
-      url: '/pages/home/home',
+    wx.request({
+      url: `${app.globalData.serverPath}/pay/api/security/bind`,
+      method:'POST',
+      header:app.getHeader(),
+      data: {
+        username: _this.data.username,
+        password: _this.data.password,
+        openid:app.globalData.openId
+      },
+      header: app.getHeader(),
+      success(res) {
+        console.log(res.data)
+        wx.hideLoading()
+        if (res.data.errcode === '0') {//登录成功-home
+          app.globalData.token = res.data.token
+          wx.switchTab({
+            url: '/pages/home/home',
+          })
+        }else {//提示错误信息
+          wx.showToast({
+            title: res.data.errmsg,
+          })
+        }
+      },
+      fail(res) {
+        wx.hideLoading()
+        wx.showToast({
+          title: JSON.stringify(res)
+        })
+      }
     })
   }
 })

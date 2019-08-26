@@ -48,3 +48,10 @@ border-bottom: 1px solid #bfbfbf;
 .qfje{
   color: red;
 }
+.hollsize{
+  width: 750rpx;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

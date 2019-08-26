@@ -6,8 +6,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    username:"2016121119000451",
-    password:"Sibe2016",
+    // username: "2016121119000451",
+    // password: "Sibe2016",
+    username:"",
+    password:"",
     pwdFocus:false,
     userFocus:true
   },

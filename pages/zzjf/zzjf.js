@@ -130,7 +130,7 @@ Page({
             key: 'order',
             data: res.data.order,
           })
-          wx.navigateTo({
+          wx.reLaunch({
             url: '/pages/zzjf/zzjfDetail',
           })
         } else { //

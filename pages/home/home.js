@@ -90,7 +90,7 @@ Page({
               key: 'order',
               data: res.data.order,
             })
-            wx.navigateTo({
+            wx.redirectTo({
               url: '/pages/zzjf/zzjfDetail',
             })
           }

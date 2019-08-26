@@ -29,7 +29,8 @@ App({
   },
   globalData: {
     userInfo: null,
-    serverPath: "http://192.168.0.19:8080",
+    // serverPath: "http://192.168.0.19:8080",
+    serverPath: "https://stdpay.hubu.edu.cn/pay",
     token: "",
     openId: "",
     projectId:"",//home页，九宫格项目的id

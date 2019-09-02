@@ -1,4 +1,6 @@
 <!--pages/zzjf/zzjf.wxml-->
+<wxs module="price" src="../../price.wxs"></wxs>
+
 <view class="pad10" style="margin-bottom:100px;">
   <van-checkbox-group value="{{ yskIdList }}" bind:change="onChange" style="width:700rpx;">
     <view wx:for="{{ list }}" wx:key="index" style="width:700rpx;">
@@ -7,14 +9,13 @@
         <view class="bot" style="width:650rpx;">
           <view class="fymc">{{i.xmmc}}</view>
           <view class="weui-flex yskItem">
-            <view class="weui-flex__item">应收：￥{{i.ysje}}</view>
-            <view class="weui-flex__item">欠费：￥
-              <span class="qfje">{{i.qfje}}</span>
+            <view class="weui-flex__item">应收：￥{{price.getDecimal(i.ysje, 2)}}</view>
+            <view class="weui-flex__item">欠费：￥<span class="qfje">{{price.getDecimal(i.qfje, 2)}}</span>
             </view>
           </view>
           <view class="weui-flex yskItem">
-            <view class="weui-flex__item">已缴：￥{{i.ssje}}</view>
-            <view class="weui-flex__item">缓交：￥{{i.hjje}}</view>
+            <view class="weui-flex__item">已缴：￥{{price.getDecimal(i.ssje, 2)}}</view>
+            <view class="weui-flex__item">缓交：￥{{price.getDecimal(i.hjje, 2)}}</view>
           </view>
         </view>
       </van-checkbox>

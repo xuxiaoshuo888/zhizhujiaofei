@@ -7,14 +7,14 @@
         <view class="bot" style="width:650rpx;">
           <view class="fymc">{{i.xmmc}}</view>
           <view class="weui-flex yskItem">
-            <view class="weui-flex__item">应收：{{i.ysje}}</view>
-            <view class="weui-flex__item">欠费：
+            <view class="weui-flex__item">应收：￥{{i.ysje}}</view>
+            <view class="weui-flex__item">欠费：￥
               <span class="qfje">{{i.qfje}}</span>
             </view>
           </view>
           <view class="weui-flex yskItem">
-            <view class="weui-flex__item">已缴：{{i.ysje}}</view>
-            <view class="weui-flex__item">缓交：{{i.hjje}}</view>
+            <view class="weui-flex__item">已缴：￥{{i.ssje}}</view>
+            <view class="weui-flex__item">缓交：￥{{i.hjje}}</view>
           </view>
         </view>
       </van-checkbox>

@@ -1,0 +1,26 @@
+var getDecimal= function(priceNum, len, dir) {
+  if (!len) {
+    return false;
+  }
+  
+  dir = dir || 'f';
+  priceNum = parseFloat(priceNum, 10);
+  len = parseInt(len, 10);
+  if(priceNum===0){
+    return '0.00';
+  }
+  if (dir === 'f') {
+    var intNumStr = priceNum.toString().split('.')[0];
+    var decimalNumStr = priceNum.toString().split('.')[1] || '00';
+    if (decimalNumStr.length < 2) {
+      decimalNumStr += '0'
+    }
+
+    return intNumStr + '.' + decimalNumStr.substring(0, len);
+  } else {
+    return priceNum.toFixed(len);
+  }
+}
+module.exports = {
+  getDecimal: getDecimal
+}

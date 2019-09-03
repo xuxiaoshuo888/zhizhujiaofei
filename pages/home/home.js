@@ -74,6 +74,13 @@ Page({
         wx.hideLoading()
         if (res.data.errcode === '0') {
           if (res.data.flag === 'ysk') { //应收款，去zzjf页面，存yskList
+            if (res.data.yskList.length === 0) {//没有ysklist，则停留在原界面
+              wx.showToast({
+                icon:'none',
+                title: '您当前没有需要缴费的项目！'
+              })
+              return
+            }
             wx.setStorage({
               key: 'yskList',
               data: res.data.yskList,

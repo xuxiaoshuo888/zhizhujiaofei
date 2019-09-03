@@ -35,3 +35,4 @@
     <view bindtap="toIndex" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">回到首页</view>
   </view>
 </view>
+  <view class="notice-1" wx:if="{{order.status === '1'}}">您已支付成功，后台正在处理您的缴费数据，可能需要五分钟左右，请不要重复支付。</view>

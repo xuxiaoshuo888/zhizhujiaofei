@@ -1,1 +1,6 @@
 /* pages/zzjf/zzjfDetail.wxss */
+.notice-1{
+  text-align: left;
+  color: #FF9800;
+  padding: 10px 15px;
+}

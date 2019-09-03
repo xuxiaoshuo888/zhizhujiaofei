@@ -67,7 +67,7 @@ Page({
               if (res.errMsg == 'requestPayment:ok') { //支付成功后跳转到订单页面，并刷新订单状态
                 _this.freshOrder()//刷新订单信息
                 wx.showToast({
-                  title: '支付成功',
+                  title: '您已支付成功，后台正在处理您的缴费数据，可能需要五分钟左右，请不要重复支付。',
                   icon: 'success',
                   duration: 2000,
                   mask: true

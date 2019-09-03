@@ -96,6 +96,14 @@ Page({
       })
       return
     }
+    
+    if (this.data.yskIdList.length > 0 && this.data.je == 0) {
+      wx.showToast({
+        icon: 'none',
+        title: '您当前选择的费用中存在缓交信息，如果您要继续支付，请先联系财务处取消缓交信息。',
+      })
+      return
+    }
     if (!this.data.phone.trim()) {
       wx.showToast({
         icon: 'none',

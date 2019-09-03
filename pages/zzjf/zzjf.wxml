@@ -1,34 +1,70 @@
 <!--pages/zzjf/zzjf.wxml-->
 <wxs module="price" src="../../price.wxs"></wxs>
 
-<view class="pad10" style="margin-bottom:100px;">
-  <van-checkbox-group value="{{ yskIdList }}" bind:change="onChange" style="width:700rpx;">
-    <view wx:for="{{ list }}" wx:key="index" style="width:700rpx;">
-      <view class="sfqj">收费学年：{{item.sfqjmc}}</view>
-      <van-checkbox wx:for="{{item.ysk}}" wx:for-item="i" wx:key="i" name="{{i.yskid}}" value="checked" checked-color="#0092CF" label-position="right"   style="width:700rpx;">
-        <view class="bot" style="width:650rpx;">
-          <view class="fymc">{{i.xmmc}}</view>
-          <view class="weui-flex yskItem">
-            <view class="weui-flex__item">应收：￥{{price.getDecimal(i.ysje, 2)}}</view>
-            <view class="weui-flex__item">欠费：￥<span class="qfje">{{price.getDecimal(i.qfje, 2)}}</span>
+<view wx:if="{{show && !loading}}" class="pad10" style="margin-bottom:100px;">
+  <van-checkbox-group value="{{ yskIdList }}" bind:change="onChange" >
+    <view wx:for="{{ list }}" wx:key="index">
+      <view class="weui-panel weui-panel_access">
+        <view class="weui-panel__hd sfqj">收费学年：{{item.sfqjmc}}</view>
+        <view class="weui-panel__bd">
+          <view class="weui-media-box weui-media-box_appmsg" wx:for="{{item.ysk}}" wx:for-item="i" wx:key="i">
+            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg" style="width:25px;height:30px;">
+              <van-checkbox class="checkboxes-{{i.yskid}}" name="{{i.yskid}}" value="checked" checked-color="#0092CF" label-position="right"></van-checkbox>
+            </view>
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg" data-id="{{i.yskid}}" bindtap="toggleItem">
+              <view class="weui-media-box__title sfxmmc">{{i.xmmc}}</view>
+              <view class="weui-media-box__desc">
+                <view class="weui-flex yskItem">
+                  <view class="weui-flex__item">应收：￥{{price.getDecimal(i.ysje, 2)}}</view>
+                  <view class="weui-flex__item">欠费：￥<span class="qfje">{{price.getDecimal(i.qfje, 2)}}</span>
+                  </view>
+                </view>
+                <view class="weui-flex yskItem">
+                  <view class="weui-flex__item">已缴：￥{{price.getDecimal(i.ssje, 2)}}</view>
+                  <view class="weui-flex__item">缓交：￥{{price.getDecimal(i.hjje, 2)}}</view>
+                </view>
+              </view>
             </view>
           </view>
-          <view class="weui-flex yskItem">
-            <view class="weui-flex__item">已缴：￥{{price.getDecimal(i.ssje, 2)}}</view>
-            <view class="weui-flex__item">缓交：￥{{price.getDecimal(i.hjje, 2)}}</view>
-          </view>
+
         </view>
-      </van-checkbox>
+      </view>
+
     </view>
   </van-checkbox-group>
-  <van-cell-group>
-    <van-field type="number" value="{{ phone }}" bind:change="setPhone" label="手机号" placeholder="请输入手机号" error-message="" border="{{ false }}" />
-  </van-cell-group>
+  <view class="weui-cells weui-cells_after-title" style="margin-bottom:100px;">
+      <view class="weui-cell ">
+        <view class="weui-cell__hd">
+          <view class="weui-label sfqj">手机号</view>
+        </view>
+        <view class="weui-cell__bd">
+          <van-field type="number" value="{{ phone }}" bind:change="setPhone" placeholder="请输入手机号" error-message="" border="{{ false }}" />
+        </view>
+      </view>
+    </view>
 </view>
 
-<van-submit-bar price="{{ je }}" button-text="去支付" bind:submit="submit" tip="{{ true }}" decimal-length="2">
+<van-submit-bar wx:if="{{show && !loading}}" price="{{ je }}" button-text="去支付" bind:submit="submit" tip="{{ true }}" decimal-length="2">
   <!-- <van-checkbox value="{{ checkedAll }}" bind:change="chooseAll">全选</van-checkbox> -->
   <view slot="tip">
     <text>至少选一项</text>
   </view>
 </van-submit-bar>
+
+<view class="page" wx:if="{{!show && !loading}}">
+    <view class="weui-msg">
+        <view class="weui-msg__icon-area">
+            <icon type="warn" size="64"></icon>
+        </view>
+        <view class="weui-msg__text-area">
+            <view class="weui-msg__desc">您当前没有需要缴费的项目</view>
+        </view>
+        
+        <view class="weui-msg__opr-area">
+            <view class="weui-btn-area">
+            <button class="weui-btn btn_bg" type="primary" bindtap="toIndex">返 回</button>
+            </view>
+        </view>
+        
+    </view>
+</view>

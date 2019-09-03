@@ -1,4 +1,3 @@
-@import "../common/lib/weui.wxss";
 
 .weui-label{
     text-align: left;

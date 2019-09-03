@@ -13,7 +13,9 @@ Page({
     projectId: "",
     phone: '',
     je: 0, //展示的金额
-    checked: true
+    checked: true,
+    show: false,
+    loading: true
   },
 
   /**
@@ -26,10 +28,18 @@ Page({
       this.setData({
         list: yskList
       })
+      if (yskList != null && yskList.length>0) {
+        this.setData({
+          show: true
+        })
+      }
       // this.chooseAll()
     }
     this.setData({
       projectId: app.globalData.projectId
+    })
+    this.setData({
+      loading: false
     })
   },
 
@@ -85,6 +95,16 @@ Page({
     console.log(e)
     this.setData({
       phone: e.detail
+    })
+  },
+  toggleItem(event) {
+    const index = event.currentTarget.dataset.id;
+    const checkbox = this.selectComponent(`.checkboxes-${index}`);
+    checkbox.toggle();
+  },
+  toIndex: function () {
+    wx.switchTab({
+      url: '/pages/home/home',
     })
   },
   submit() {

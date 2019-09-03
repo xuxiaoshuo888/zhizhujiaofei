@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    imgUrls: ['../../img/b1.jpg', '../../img/b2.jpg'],
+    imgUrls: ['../../img/b1.jpg'],
     indicatorDots: true,
     autoplay: true,
     interval: 5000,

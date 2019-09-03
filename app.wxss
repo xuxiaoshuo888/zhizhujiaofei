@@ -28,14 +28,15 @@
 }
 .sfqj{
   color: #2AA8E9;
-  font-size: 30rpx;
-  padding: 10rpx;
+  font-size: 17px;
+}
+.sfxmmc{
+  font-size:15px;
 }
 .yskItem{
 color: #555555 ;
 font-size: 30rpx;
-padding: 10rpx;
-margin-bottom: 10rpx;
+padding: 2rpx 0;
 }
 .bot{
 border-bottom: 1px solid #bfbfbf;

@@ -56,3 +56,15 @@ border-bottom: 1px solid #bfbfbf;
   justify-content: center;
   align-items: center;
 }
+
+.lr {
+  display: flex;
+}
+
+.lr1 {
+  flex: 0 0 170rpx;
+}
+
+.lr2 {
+  flex: 0 0 auto;
+}

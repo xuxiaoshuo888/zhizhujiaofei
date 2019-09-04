@@ -1,0 +1,6 @@
+/* pages/jffind/jffind.wxss */
+.i{
+  height: 20px;
+  line-height: 20px;
+  text-overflow: wrap;
+}

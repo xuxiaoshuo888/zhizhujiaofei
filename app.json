@@ -15,7 +15,9 @@
     "pages/zzjf/zzjf",
     "pages/list/list",
     "pages/find/find",
-    "pages/zzjf/zzjfDetail"
+    "pages/zzjf/zzjfDetail",
+    "pages/ddfind/ddfind",
+    "pages/jffind/jffind"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -27,7 +29,7 @@
   "tabBar": {
     "list": [
       {
-        "pagePath": "pages/list/list",
+        "pagePath": "pages/ddfind/ddfind",
         "text": "订单",
         "iconPath": "img/form_light.png",
         "selectedIconPath": "img/form_fill_light.png"
@@ -39,7 +41,7 @@
         "selectedIconPath": "img/home_fill_light.png"
       },
       {
-        "pagePath": "pages/find/find",
+        "pagePath": "pages/jffind/jffind",
         "text": "查询",
         "iconPath": "img/search.png",
         "selectedIconPath": "img/search_fill.png"

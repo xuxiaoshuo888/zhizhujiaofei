@@ -1,0 +1,35 @@
+<!--pages/jffind/jffind.wxml-->
+<wxs module="price" src="../../price.wxs"></wxs>
+
+<view style="margin-bottom:20px;">
+  <view class="weui-panel weui-panel_access">
+    <!-- <view class="weui-panel__hd">应缴费用</view> -->
+    <view class="weui-panel__bd">
+      <view class="weui-media-box weui-media-box_appmsg" wx:for="{{list}}" wx:key="index">
+        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg" style="width:200rpx;">
+          <!-- <image class="weui-media-box__thumb" src="/img/ddfind.jpg" /> -->
+          <view class="i">{{item.sfqjmc}}</view>
+          <view class="i">{{item.xmmc}}</view>
+        </view>
+        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+          <view class="weui-media-box__desc lr">
+            <view class="lr1">应收金额：</view>
+            <view class="lr2">￥{{price.getDecimal(item.ysje, 2)}}</view>
+          </view>
+          <view class="weui-media-box__desc lr">
+            <view class="lr1">实收金额：</view>
+            <view class="lr2">￥{{price.getDecimal(item.ssje, 2)}}</view>
+          </view>
+          <view class="weui-media-box__desc lr">
+            <view class="lr1">缓交金额：</view>
+            <view class="lr2">￥{{price.getDecimal(item.hjje, 2)}}</view>
+          </view>
+        </view>
+        <view class="weui-media-box__desc lr" wx:if="{{item.status == '0'}}" style="text-align:right;margin-top:10px;">
+          <van-button color="#0092CF" size="small" data-order="{{item.id}}" bindtap="refresh">更新订单</van-button>
+        </view>
+      </view>
+    </view>
+    <view class="weui-panel__ft"></view>
+  </view>
+</view>

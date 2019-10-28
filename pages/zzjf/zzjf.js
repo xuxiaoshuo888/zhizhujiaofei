@@ -142,7 +142,7 @@ Page({
       mask: true
     })
     wx.request({
-      url: `${app.globalData.serverPath}/pay/api/order/saveBusinessOrder`,
+      url: `${app.globalData.serverPath}/api/order/saveBusinessOrder`,
       method: 'POST',
       data: data,
       header: app.getHeader2(),

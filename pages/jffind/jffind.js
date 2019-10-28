@@ -71,7 +71,7 @@ Page({
       mask: true
     })
     wx.request({
-      url: `${app.globalData.serverPath}/pay/api/payInfo/page`,
+      url: `${app.globalData.serverPath}/api/payInfo/page`,
       method: 'POST',
       data:{limit:100,page:1},
       header: app.getHeader2(),

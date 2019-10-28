@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list: []
+    list: [],//订单查询列表
+    list2:[]//缴费查询
   },
 
   /**
@@ -28,6 +29,7 @@ Page({
    */
   onShow: function() {
     this.getData()
+    this.getData2()
   },
 
   /**
@@ -64,14 +66,14 @@ Page({
   onShareAppMessage: function() {
 
   },
-  getData: function() {
+  getData: function() {//订餐查询
     let _this = this;
     wx.showLoading({
       title: '加载中...',
       mask: true
     })
     wx.request({
-      url: `${app.globalData.serverPath}/pay/api/order/orderList`,
+      url: `${app.globalData.serverPath}/api/order/orderList`,
       method: 'POST',
       header: app.getHeader2(),
       success(res) {
@@ -95,14 +97,14 @@ Page({
       }
     })
   },
-  refresh: function(e) {
+  refresh: function(e) {//更新订单
     let _this = this;
     wx.showLoading({
       title: '加载中...',
       mask: true
     })
     wx.request({
-      url: `${app.globalData.serverPath}/pay/api/order/queryBusinessOrderStatus`,
+      url: `${app.globalData.serverPath}/api/order/queryBusinessOrderStatus`,
       method: 'POST',
       data:{orderId:e.currentTarget.dataset.order},
       header: app.getHeader2(),
@@ -111,6 +113,41 @@ Page({
         wx.hideLoading()
         if (res.data && res.data.errcode === '0') {//更新订单后刷新订单
           _this.getData()
+        } else {
+          wx.showToast({
+            title: res.data.errmsg,
+          })
+        }
+      },
+      fail(res) {
+        wx.hideLoading()
+        wx.showToast({
+          title: JSON.stringify(res)
+        })
+      }
+    })
+  },
+  toggleFind(){//切换订单查询和缴费查询
+
+  },
+  getData2: function () {//缴费查询
+    let _this = this;
+    wx.showLoading({
+      title: '加载中...',
+      mask: true
+    })
+    wx.request({
+      url: `${app.globalData.serverPath}/api/payInfo/page`,
+      method: 'POST',
+      data: { limit: 100, page: 1 },
+      header: app.getHeader2(),
+      success(res) {
+        console.log(res.data)
+        wx.hideLoading()
+        if (res.data.errcode === '0') {
+          _this.setData({
+            list2: res.data.data.rows
+          })
         } else {
           wx.showToast({
             title: res.data.errmsg,

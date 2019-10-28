@@ -1,36 +1,78 @@
 <!--pages/ddfind/ddfind.wxml-->
 <wxs module="price" src="../../price.wxs"></wxs>
-<view style="margin-bottom:20px;">
-  <view class="weui-panel weui-panel_access">
-    <!-- <view class="weui-panel__hd">应缴费用</view> -->
-    <view class="weui-panel__bd">
-      <view class="weui-media-box weui-media-box_appmsg"  wx:for="{{list}}" wx:key="index">
-        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-          <image class="weui-media-box__thumb" src="/img/ddfind.jpg" />
+<van-tabs color="#0092CF" animated swipeable sticky>
+  <van-tab title="订单查询">
+    <!-- 订单查询 -->
+    <view wx:if="{{list.length === 0}}" class="no-date">暂无数据</view>
+    <view style="margin-bottom:20px;">
+      <view class="weui-panel weui-panel_access">
+        <!-- <view class="weui-panel__hd">应缴费用</view> -->
+        <view class="weui-panel__bd">
+          <view class="weui-media-box weui-media-box_appmsg" wx:for="{{list}}" wx:key="index">
+            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+              <image class="weui-media-box__thumb" src="/img/ddfind.jpg" />
+            </view>
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+              <view class="weui-media-box__desc lr">
+                <view class="lr1">订单号：</view>
+                <view class="lr2">{{item.id}}</view>
+              </view>
+              <view class="weui-media-box__desc lr">
+                <view class="lr1">订单金额：</view>
+                <view class="lr2">￥{{price.getDecimal(item.price, 2)}}</view>
+              </view>
+              <view class="weui-media-box__desc lr">
+                <view class="lr1">生成时间：</view>
+                <view class="lr2">{{item.whenCreatedString}}</view>
+              </view>
+              <view class="weui-media-box__desc lr">
+                <view class="lr1">状态：</view>
+                <view class="lr2">{{item.status == '9' ? '已取消' : ''}}{{item.status == '0' ? '待支付' : ''}}{{item.status == '1' ? '支付成功' : ''}}</view>
+              </view>
+              <view class="weui-media-box__desc lr" wx:if="{{item.status == '0' || item.status == '9'}}" style="text-align:right;margin-top:10px;">
+                <van-button color="#0092CF" size="small" data-order="{{item.id}}" bindtap="refresh">更新订单</van-button>
+              </view>
+            </view>
+          </view>
         </view>
-        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-          <view class="weui-media-box__desc lr">
-            <view class="lr1">订单号：</view>
-            <view class="lr2">{{item.id}}</view>
-          </view>
-          <view class="weui-media-box__desc lr">
-            <view class="lr1">订单金额：</view>
-            <view class="lr2">￥{{price.getDecimal(item.price, 2)}}</view>
-          </view>
-          <view class="weui-media-box__desc lr">
-            <view class="lr1">生成时间：</view>
-            <view class="lr2">{{item.whenCreatedString}}</view>
-          </view>
-          <view class="weui-media-box__desc lr">
-            <view class="lr1">状态：</view>
-            <view class="lr2">{{item.status == '9' ? '已取消' : ''}}{{item.status == '0' ? '待支付' : ''}}{{item.status == '1' ? '支付成功' : ''}}</view>
-          </view>
-          <view class="weui-media-box__desc lr" wx:if="{{item.status == '0'}}" style="text-align:right;margin-top:10px;">
-            <van-button color="#0092CF" size="small" data-order="{{item.id}}" bindtap="refresh">更新订单</van-button>
-          </view>
-        </view>
+        <view class="weui-panel__ft"></view>
       </view>
     </view>
-    <view class="weui-panel__ft"></view>
-  </view>
-</view>
+  </van-tab>
+  <van-tab title="缴费查询">
+    <view wx:if="{{list2.length === 0}}" class="no-date">暂无数据</view>
+    <!-- 缴费查询 -->
+    <view style="margin-bottom:20px;">
+      <view class="weui-panel weui-panel_access">
+        <!-- <view class="weui-panel__hd">应缴费用</view> -->
+        <view class="weui-panel__bd">
+          <view class="weui-media-box weui-media-box_appmsg" wx:for="{{list2}}" wx:key="index">
+            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg" style="width:200rpx;">
+              <!-- <image class="weui-media-box__thumb" src="/img/ddfind.jpg" /> -->
+              <view class="i">{{item.sfqjmc}}</view>
+              <view class="i">{{item.xmmc}}</view>
+            </view>
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+              <view class="weui-media-box__desc lr">
+                <view class="lr1">应收金额：</view>
+                <view class="lr2">￥{{price.getDecimal(item.ysje, 2)}}</view>
+              </view>
+              <view class="weui-media-box__desc lr">
+                <view class="lr1">实收金额：</view>
+                <view class="lr2">￥{{price.getDecimal(item.ssje, 2)}}</view>
+              </view>
+              <view class="weui-media-box__desc lr">
+                <view class="lr1">缓交金额：</view>
+                <view class="lr2">￥{{price.getDecimal(item.hjje, 2)}}</view>
+              </view>
+            </view>
+            <view class="weui-media-box__desc lr" wx:if="{{item.status == '0'}}" style="text-align:right;margin-top:10px;">
+              <van-button color="#0092CF" size="small" data-order="{{item.id}}" bindtap="refresh">更新订单</van-button>
+            </view>
+          </view>
+        </view>
+        <view class="weui-panel__ft"></view>
+      </view>
+    </view>
+  </van-tab>
+</van-tabs>

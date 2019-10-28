@@ -11,7 +11,8 @@ Page({
     username:"",
     password:"",
     pwdFocus:false,
-    userFocus:true
+    userFocus:true,
+    opneId:''
   },
 
   /**
@@ -32,7 +33,16 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    if (app.globalData.openId){
+      this.setData({
+        opneId: app.globalData.openId
+      })
+    }else{
+      let o = wx.getStorageSync('openId')
+      this.setData({
+        opneId: o
+      })
+    }
   },
 
   /**
@@ -122,13 +132,13 @@ Page({
       mask: true
     })
     wx.request({
-      url: `${app.globalData.serverPath}/pay/api/security/bind`,
+      url: `${app.globalData.serverPath}/api/security/bind`,
       method:'POST',
       header:app.getHeader(),
       data: {
         username: _this.data.username,
         password: _this.data.password,
-        openid:app.globalData.openId
+        openid: _this.data.opneId
       },
       header: app.getHeader(),
       success(res) {
@@ -136,6 +146,8 @@ Page({
         wx.hideLoading()
         if (res.data.errcode === '0') {//登录成功-home
           app.globalData.token = res.data.token
+          app.globalData.appUserInfo.name = res.data.name
+          app.globalData.appUserInfo.xh = res.data.username
           wx.switchTab({
             url: '/pages/home/home',
           })

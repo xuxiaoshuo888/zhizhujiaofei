@@ -1,1 +1,11 @@
 /* pages/ddfind/ddfind.wxss */
+.i{
+  height: 20px;
+  line-height: 20px;
+  text-overflow: wrap;
+}
+.no-date{
+  padding: 100px 20px;
+  text-align: center;
+  line-height: 100px;
+}

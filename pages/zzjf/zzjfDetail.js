@@ -47,7 +47,7 @@ Page({
       title: '支付中',
     })
     wx.request({
-      url: `${app.globalData.serverPath}/pay/api/order/startPay`,
+      url: `${app.globalData.serverPath}/api/order/startPay`,
       method: "POST",
       data: {
         orderId: _this.data.order.id
@@ -103,7 +103,7 @@ Page({
       title: '刷新中...',
     })
     wx.request({
-      url: `${app.globalData.serverPath}/pay/api/order/orderDetail`,
+      url: `${app.globalData.serverPath}/api/order/orderDetail`,
       method: "POST",
       data: {
         orderId: _this.data.order.id
@@ -159,7 +159,7 @@ Page({
   cancelOrder:function(){//取消订单
   let _this = this;
     wx.request({
-      url: `${app.globalData.serverPath}/pay/api/order/cancelOrder`,
+      url: `${app.globalData.serverPath}/api/order/cancelOrder`,
       method: "POST",
       data: {
         orderId: _this.data.order.id

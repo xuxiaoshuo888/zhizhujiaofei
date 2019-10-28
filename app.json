@@ -5,7 +5,9 @@
     "van-checkbox-group": "vant-weapp/checkbox-group/index",
     "van-submit-bar": "vant-weapp/submit-bar/index",
     "van-field": "vant-weapp/field/index",
-    "van-tag": "vant-weapp/tag/index"
+    "van-tag": "vant-weapp/tag/index",
+    "van-tab": "vant-weapp/tab/index",
+    "van-tabs": "vant-weapp/tabs/index"
   },
   "pages": [
     "pages/index/index",
@@ -17,7 +19,8 @@
     "pages/find/find",
     "pages/zzjf/zzjfDetail",
     "pages/ddfind/ddfind",
-    "pages/jffind/jffind"
+    "pages/jffind/jffind",
+    "pages/me"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -30,7 +33,7 @@
     "list": [
       {
         "pagePath": "pages/ddfind/ddfind",
-        "text": "订单",
+        "text": "查询",
         "iconPath": "img/form_light.png",
         "selectedIconPath": "img/form_fill_light.png"
       },
@@ -41,10 +44,10 @@
         "selectedIconPath": "img/home_fill_light.png"
       },
       {
-        "pagePath": "pages/jffind/jffind",
-        "text": "查询",
-        "iconPath": "img/search.png",
-        "selectedIconPath": "img/search_fill.png"
+        "pagePath": "pages/me",
+        "text": "我的",
+        "iconPath": "img/me.png",
+        "selectedIconPath": "img/me-selected.png"
       }
     ],
     "color": "#333",

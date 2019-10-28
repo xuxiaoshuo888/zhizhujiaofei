@@ -39,7 +39,7 @@ Page({
     let _this = this;
     //获取九宫格列表
     wx.request({
-      url: `${app.globalData.serverPath}/pay/api/project/list`,
+      url: `${app.globalData.serverPath}/api/project/list`,
       header: app.getHeader2(),
       success(res) {
         if (res.data.errcode === '0') {
@@ -64,7 +64,7 @@ Page({
       title: '加载中',
     })
     wx.request({
-      url: `${app.globalData.serverPath}/pay/api/order/arrear`,
+      url: `${app.globalData.serverPath}/api/order/arrear`,
       method: "POST",
       data: {
         projectId: id
